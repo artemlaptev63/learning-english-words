@@ -14,10 +14,15 @@ class InputItem extends Component {
     this.props.addAnswerAction(id, this.input.value)
   }
   render() {
-    const item = this.props.item
+    const { isShowingAnswers, item } = this.props
     return (
       <div className="question">
         <p>{item.id}&nbsp;&nbsp;{item.russian}</p>
+        <p className="correctAnswer">
+          {
+            isShowingAnswers ? item.english : null
+          }
+        </p>
         <p>
           <input
             type="text"

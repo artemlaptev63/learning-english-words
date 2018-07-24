@@ -9,11 +9,20 @@ import {
 import InputItem from './InputItem'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isShowingAnswers: false
+    }
+  }
   componentDidMount() {
     this.props.fetchWords()
   }
   check() {
     this.props.checkAnswer()
+  }
+  toogleIsShoingAnswers() {
+    this.setState({ isShowingAnswers: !this.state.isShowingAnswers })
   }
 
   render() {
@@ -35,12 +44,14 @@ class App extends Component {
             isUploaded ? words.map((item, index) => {
               return <InputItem
                 item={item}
-                key={index} />
+                key={index}
+                isShowingAnswers={this.state.isShowingAnswers} />
             })
               : null
           }
         </ul>
         <button onClick={() => this.check()}>Check</button>
+        <button onClick={() => this.toogleIsShoingAnswers()}>Show Answers</button>
       </div>
     );
   }
