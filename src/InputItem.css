@@ -1,0 +1,35 @@
+.question {
+  font-size: 16px;
+  font-style: normal;
+  letter-spacing: 1.2px;
+  color: #151f40;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+.question input {
+  width: 400px;
+  padding: 5px;
+  color: #979797;
+  text-align: left;
+  margin-left: 22px;
+  padding-left: 15px;
+  outline-color: #4cb2d4;
+  font-size: 16px;
+  border: solid 0.5px #979797;
+  margin-bottom: 15px;
+}
+.question input.correct {
+  color: #56b949 !important;
+  background-image: url('check-circle.png');
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 380px;
+}
+.question input.incorrect {
+  color: #f2341c !important;
+  background-image: url('x-circle.png');
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 380px;
+}
