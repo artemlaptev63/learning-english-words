@@ -24,21 +24,29 @@ class App extends Component {
   toogleIsShoingAnswers() {
     this.setState({ isShowingAnswers: !this.state.isShowingAnswers })
   }
+  goToTop() {
+    window.scroll(0, 0)
+  }
 
   render() {
     const { words, isUploaded, procents } = this.props
     return (
       <div>
-        <p>
-          {
-            isUploaded ? procents : null
-          }
-        </p>
-        <p>
-          {
-            isUploaded ? words.length : null
-          }
-        </p>
+        <div className='result'>
+          <span>
+            {
+              isUploaded ? procents : null
+            }
+          </span>
+          &nbsp;&nbsp;
+          <span>
+            {
+              isUploaded ? words.length : null
+            }
+          </span>
+          <br />
+          <button onClick={() => this.goToTop()}>Go To Top</button>
+        </div>
         <ul>
           {
             isUploaded ? words.map((item, index) => {
@@ -50,8 +58,8 @@ class App extends Component {
               : null
           }
         </ul>
-        <button onClick={() => this.check()}>Check</button>
-        <button onClick={() => this.toogleIsShoingAnswers()}>Show Answers</button>
+        <button className='check' onClick={() => this.check()}>Check</button>
+        <button className='showAnswers' onClick={() => this.toogleIsShoingAnswers()}>Show Answers</button>
       </div>
     );
   }
